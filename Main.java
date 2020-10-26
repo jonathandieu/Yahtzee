@@ -1,4 +1,6 @@
 import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 class Main {
 
@@ -7,9 +9,13 @@ class Main {
   {
     Scanner sc = new Scanner(System.in);
     ArrayList<Integer> diceRoll = new ArrayList<Integer>();
-    ArrayList<Integer> sequentialDiceRoll = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5,6));
+    ArrayList<Integer> smallStraight = new ArrayList<Integer>(Arrays.asList(1,2,3,4));
+    ArrayList<Integer> largeStraight = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5));
 
-    System.out.println(sequentialDiceRoll);
+    System.out.println(smallStraight);
+    System.out.println(largeStraight);
+
+
     
     // Values that will be printed out at the end
     int cPoints = 0;
@@ -31,25 +37,43 @@ class Main {
             System.out.println("That isn't a valid roll");
         }
     }
+
+     ArrayList<Integer> sequentialDiceRoll1 = new ArrayList<Integer>(diceRoll.subList(0, 4));
+     ArrayList<Integer> sequentialDiceRoll2 = new ArrayList<Integer>(diceRoll.subList(0, 5));
     
     // Sorts the arraylist values
     Collections.sort(diceRoll);
-    System.out.println(diceRoll);
+    System.out.println("This is what was entered:" + diceRoll);
+    System.out.println("This is what we have" + sequentialDiceRoll1);
+    System.out.println("This is what we are comparing to" + smallStraight);
+    if(sequentialDiceRoll1 == smallStraight)
+    {
+        System.out.println("Success!");
+    }
+    System.out.println(sequentialDiceRoll2);
+
 
 
 
     int firstNum = diceRoll.get(0);
     int lastNum = diceRoll.get(5);
 
+    
     if(firstNum == lastNum)
     {
         maxiYahtzy = 100;
     }
 
-    else if(diceRoll.contains(sequentialDiceRoll))
+    else if(sequentialDiceRoll2.equals(largeStraight))
     {
-        pPoints = 35;
+        lStraight = 50;
     }
+    
+    else if(sequentialDiceRoll1.equals(smallStraight))
+    {
+        sStraight = 40;
+    }
+    
     else
     {
         cPoints = getSum(diceRoll);
