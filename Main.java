@@ -53,8 +53,6 @@ class Main {
     System.out.println(sequentialDiceRoll2);
 
 
-
-
     int firstNum = diceRoll.get(0);
     int lastNum = diceRoll.get(5);
 
@@ -84,7 +82,9 @@ class Main {
     System.out.printf("Small Straight: %d points\n", sStraight);
     System.out.printf("Large Straight: %d points\n", lStraight);
     System.out.printf("Maxiyatzy: %d points\n", maxiYahtzy);
-
+    
+    // Close Resource Leak
+    sc.close();
   }
   public static int getSum(ArrayList<Integer> someAL)
   {
@@ -97,4 +97,5 @@ class Main {
     }
     return sum;
   }
+  
 }
