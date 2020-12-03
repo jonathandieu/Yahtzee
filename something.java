@@ -17,7 +17,7 @@ public class something {
      al.add(4);
      al.add(5);
      al.add(6);
-
+    
      System.out.println("Original ArrayList Content: "+al);
 
      //Sublist to ArrayList
